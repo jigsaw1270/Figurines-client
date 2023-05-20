@@ -6,7 +6,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Login = () => {
-    const signIn = useContext(AuthContext);
+    const {signIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)

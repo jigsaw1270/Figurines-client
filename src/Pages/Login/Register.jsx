@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
-    const  createUser  = useContext(AuthContext);
+    const {createUser}   = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
 
     const handleRegister = event => {

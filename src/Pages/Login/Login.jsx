@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Googlesignin from './Googlesignin';
 
 
 
@@ -58,6 +59,10 @@ const Login = () => {
 
                 </Form.Text>
             </Form>
+
+            <div>
+                <Googlesignin></Googlesignin>
+            </div>
         </Container>
     );
 };

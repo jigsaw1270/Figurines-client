@@ -9,6 +9,7 @@ import Addtoys from "../Pages/Mainpages/Addtoys";
 import Blogs from "../Pages/Mainpages/Blogs";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
+import Errorpage from "../Pages/Home/Shared/Errorpage";
 
 
   const router = createBrowserRouter([
@@ -41,7 +42,13 @@ import Register from "../Pages/Login/Register";
             element: <Blogs></Blogs>
         }
       ]
+
+    
     },
+    {
+      path: '*',
+      element: <Errorpage></Errorpage>
+    }
   ]);
 
   export default router;

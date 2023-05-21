@@ -1,42 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 
-const Navbar = ({ loggedIn, username }) => {
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
+
+const Header= () => {
+  const {user,logOut} = useContext(AuthContext) 
+  const photo = user?.photoURL
     return (
-        <div>
-      <nav className="py-4 bg-blue-500">
-      <div className="container flex items-center justify-between mx-auto">
-        <div className="flex items-center">
-          <img src="/path/to/logo.png" alt="Website Logo" className="w-10 h-10 mr-2" />
-          <span className="text-xl font-bold text-white">Website Name</span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Link  to="/" className="text-white hover:text-gray-200">Home</Link>
-          <Link  to="/toys" className="text-white hover:text-gray-200">All Toys</Link>
-          {loggedIn && (
-            <>
-              <Link  to="/my-toys" className="text-white hover:text-gray-200">My Toys</Link>
-              <Link  to="/add-toy" className="text-white hover:text-gray-200">Add A Toy</Link>
-            </>
-          )}
-          <Link  to="/blogs" className="text-white hover:text-gray-200">Blogs</Link>
-          {loggedIn ? (
-            <div className="relative">
-              <img src="/path/to/profile-picture.png" alt="Profile Picture" className="w-8 h-8 rounded-full cursor-pointer" />
-              {username && (
-                <span className="absolute bottom-0 px-2 py-1 text-xs text-gray-900 transform -translate-x-1/2 bg-white rounded left-1/2">
-                  {username}
-                </span>
-              )}
-            </div>
-          ) : (
-            <Link  to="/login" className="text-white hover:text-gray-200">Login</Link>
-          )}
-        </div>
-      </div>
-    </nav>
-        </div>
-    );
+    <div >
+      <Container   fluid style={{background: "#08E0DD"}}>
+      
+       
+          
+            <Container className='flex justify-between text-center' >
+              <div >
+              <Navbar.Brand href="#home"><img style={{width:'145px',height:'65px'}} src="https://i.ibb.co/10gq6RC/figure.jpg" alt="" /></Navbar.Brand>
+              {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+              </div>
+              
+            
+             
+                  <div className='mt-6' >
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/'>Home</Link>
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/blogs'>Blog</Link>
+                  
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to="/mytoys">My Toys</Link>
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to="/addtoy">Add Toys</Link>
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}}>{user?  <h6 onClick={()=>logOut()}  >
+                  Logout
+                  </h6> :  <Link className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/login'>
+                  Login
+                  </Link>}</Link>
+                  <Link to=''>{user  && <div className='size_of_img' >
+                                        <img  src={photo} title={user?.displayName} id="t-4" style={{width:'30px',height:'30px',borderRadius:'50%'}} alt="" />
+                                    </div>}</Link>
+                  </div>
+                
+              
+             </Container>
+           
+          
+     
+  </Container>
+    </div>
+  );
 };
 
-export default Navbar;
+export default Header;

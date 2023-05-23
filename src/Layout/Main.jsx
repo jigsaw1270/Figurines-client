@@ -6,16 +6,13 @@ import Home from '../Pages/Home/Home';
 import Mytoys from '../Pages/Mainpages/Mytoys';
 
 const Main = () => {
-    const loadedToys = useLoaderData();
-    const [toys, setToys] = useState(loadedToys);
+    
     return (
         <div>
         <Navbar></Navbar>
        
             <Outlet></Outlet>
-           {/* {
-            toys.map(toy => <Mytoys key={toy._id} toy={toy} toys={toys} setToys={setToys}></Mytoys>)
-           } */}
+       
             <Footer></Footer>
         </div>
     );

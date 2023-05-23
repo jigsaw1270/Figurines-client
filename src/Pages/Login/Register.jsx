@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
-import { useState } from 'react';
+
+
 import { AuthContext } from '../../Providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const {createUser}   = useContext(AuthContext);
-    const [accepted, setAccepted] = useState(false);
+   
 
     const handleRegister = event => {
         event.preventDefault();
@@ -28,54 +29,54 @@ const Register = () => {
             })
     }
 
-    const handleAccepted = event =>{
-        setAccepted(event.target.checked)
-    }
 
     return (
-        <Container className='mx-auto w-25'>
-            <h3>Please Register</h3>
-            <Form onSubmit={handleRegister}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Your Name" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name='photo' placeholder="Photo URL" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check
-                        onClick={handleAccepted}
-                        type="checkbox"
-                        name="accept"
-                        label={<>Accept <Link to="/terms">Terms and Conditions</Link> </>} />
-                </Form.Group>
-                <Button variant="primary" disabled={!accepted} type="submit">
-                    Register
-                </Button>
-                <br />
-                <Form.Text className="text-secondary">
-                    Already Have an Account? <Link to="/login">Login</Link>
-                </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
-                <Form.Text className="text-danger">
-
-                </Form.Text>
-            </Form>
-        </Container>
+        <Container className='mx-auto w-25 mb-14'>
+        <form onSubmit={handleRegister} className="min-h-screen hero bg-base-200">
+  <div className="flex-col hero-content lg:flex-row-reverse">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold">Register now!</h1>
+      <p className="py-6">And get 6 months free trial !!!!</p>
+    </div>
+    <div className="flex-shrink-0 w-full max-w-sm shadow-2xl card bg-base-100">
+      <div className="card-body">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input type="text" name='email' placeholder="email" className="input input-bordered" />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input type="text" name='name' placeholder="name" className="input input-bordered" />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo</span>
+          </label>
+          <input type="text" name='photo' placeholder="photo" className="input input-bordered" />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input type="password" name='password' placeholder="password" className="input input-bordered" />
+        
+        </div>
+        <div className="mt-6 form-control">
+          <button type='submit' className="bg-teal-400 btn">Register</button>
+          <p>Already signed up? <Link to="/login"> <span className='text-2xl'>Login</span></Link> </p>
+        
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</Container>
     );
 };
 

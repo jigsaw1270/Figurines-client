@@ -49,20 +49,20 @@ const Googlesignin = () => {
         <div className='mx-auto'>
        {
         user ?
-        <button onClick={handleSignout}>Sign out</button> :
+        <button className="bg-teal-400 btn" onClick={handleSignout}>Sign out from google</button> :
            <div>
-           <button className='me-5' onClick={handlegoogleSignin}> <FaGoogle></FaGoogle></button>
-            <button onClick={handlegithubSignin}><FaGithub></FaGithub></button>
+           <button className='me-5 "bg-teal-400 btn rounded-full' onClick={handlegoogleSignin}> <FaGoogle></FaGoogle></button>
+            <button className='"bg-teal-400 btn rounded-full' onClick={handlegithubSignin}><FaGithub></FaGithub></button>
            </div>
        }
 
-           { user &&
+           {/* { user &&
             <div>
                 <h1>{user.displayName}</h1>
                 <p>Email : {user.email}</p>
                 <img src={user.photoURL} alt="" />
             </div>
-           }
+           } */}
         </div>
     );
 };

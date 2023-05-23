@@ -22,8 +22,9 @@ const Header= () => {
             
              
                   <div className='mt-6' >
-                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/'>Home</Link>
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/home'>Home</Link>
                   <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/blogs'>Blog</Link>
+                  <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to='/alltoys'>Alltoys</Link>
                   
                   <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to="/mytoys">My Toys</Link>
                   <Link  className='mx-2' style={{color:'#335B5A',textDecoration:'none',fontWeight:'600'}} to="/addtoy">Add Toys</Link>

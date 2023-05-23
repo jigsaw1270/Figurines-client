@@ -32,37 +32,46 @@ const Login = () => {
     }
 
     return (
-        <Container className='mx-auto w-25'>
-            <h3>Please Login</h3>
-            <Form onSubmit={handleLogin}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Login
-                </Button>
-                <br />
-                <Form.Text className="text-secondary">
-                    Don't Have an Account? <Link to="/register">Register</Link>
-                </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
-                <Form.Text className="text-danger">
-
-                </Form.Text>
-            </Form>
-
-            <div>
+        <Container className='mx-auto w-25 mb-14'>
+        <form onSubmit={handleLogin} className="min-h-screen hero bg-base-200">
+  <div className="flex-col hero-content lg:flex-row-reverse">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold">Login now!</h1>
+      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+    </div>
+    <div className="flex-shrink-0 w-full max-w-sm shadow-2xl card bg-base-100">
+      <div className="card-body">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input type="text" name='email' placeholder="email" className="input input-bordered" />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input type="text" name='password' placeholder="password" className="input input-bordered" />
+          <label className="label">
+            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+          </label>
+        </div>
+        <div className="mt-6 form-control">
+          <button type='submit' className="btn btn-primary">Login</button>
+          <p>
+          Don't Have an Account? <span className='text-2xl'> <Link to="/register">Register</Link></span>
+          </p>
+          
+          <div>
                 <Googlesignin></Googlesignin>
             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+           
+
         </Container>
     );
 };

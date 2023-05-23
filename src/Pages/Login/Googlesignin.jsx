@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import app from '../../Firebase/firebase.config.js';
+import { FaGoogle , FaGithub } from "react-icons/fa";
 
 const Googlesignin = () => {
     const [user, setUser] = useState(null);
@@ -45,13 +46,13 @@ const Googlesignin = () => {
         }
     
     return (
-        <div>
+        <div className='mx-auto'>
        {
         user ?
         <button onClick={handleSignout}>Sign out</button> :
            <div>
-           <button onClick={handlegoogleSignin}>Google log in</button>
-            <button onClick={handlegithubSignin}>Github login</button>
+           <button className='me-5' onClick={handlegoogleSignin}> <FaGoogle></FaGoogle></button>
+            <button onClick={handlegithubSignin}><FaGithub></FaGithub></button>
            </div>
        }
 

@@ -13,6 +13,7 @@ import Errorpage from "../Pages/Home/Shared/Errorpage";
 import Home from "../Pages/Home/Home";
 import Singletoy from "../Pages/Mainpages/Singletoy";
 import Updatetoys from "../Pages/Mainpages/Updatetoys";
+import PrivateRoute from "./Privateroute";
 
 
   const router = createBrowserRouter([
@@ -40,12 +41,12 @@ import Updatetoys from "../Pages/Mainpages/Updatetoys";
         },
         {
             path: '/mytoys',
-            element: <Mytoys></Mytoys>,
+            element: <PrivateRoute><Mytoys></Mytoys></PrivateRoute>,
             loader:() => fetch('http://localhost:5000/toy')
         },
         {
             path: '/addtoy',
-            element: <Addtoys></Addtoys>
+            element: <PrivateRoute><Addtoys></Addtoys> </PrivateRoute>
         },
         {
           path: '/update/:id',
@@ -58,7 +59,7 @@ import Updatetoys from "../Pages/Mainpages/Updatetoys";
         },
         {
            path : '/alltoys/:id',
-           element: <Singletoy></Singletoy>,
+           element: <PrivateRoute><Mytoys></Mytoys></PrivateRoute>,
            loader:({params}) =>fetch(`http://localhost:5000/alltoys/${params.id}`)
         },
         {

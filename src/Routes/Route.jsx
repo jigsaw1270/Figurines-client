@@ -12,12 +12,15 @@ import Register from "../Pages/Login/Register";
 import Errorpage from "../Pages/Home/Shared/Errorpage";
 import Home from "../Pages/Home/Home";
 import Singletoy from "../Pages/Mainpages/Singletoy";
+import Updatetoys from "../Pages/Mainpages/Updatetoys";
 
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      
+
       children:[
         {  path:'/home',
         element: <Home></Home>
@@ -37,11 +40,17 @@ import Singletoy from "../Pages/Mainpages/Singletoy";
         },
         {
             path: '/mytoys',
-            element: <Mytoys></Mytoys>
+            element: <Mytoys></Mytoys>,
+            loader:() => fetch('http://localhost:5000/toy')
         },
         {
             path: '/addtoy',
             element: <Addtoys></Addtoys>
+        },
+        {
+          path: '/update',
+          element: <Updatetoys></Updatetoys>,
+          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
         },
         {
             path: '/alltoys',

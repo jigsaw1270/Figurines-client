@@ -48,7 +48,7 @@ import Updatetoys from "../Pages/Mainpages/Updatetoys";
             element: <Addtoys></Addtoys>
         },
         {
-          path: '/update',
+          path: '/update/:id',
           element: <Updatetoys></Updatetoys>,
           loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
         },

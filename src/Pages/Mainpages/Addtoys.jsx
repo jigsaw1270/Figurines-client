@@ -9,8 +9,9 @@ const Addtoys = () => {
 
         const form = event.target;
 
+        const email = form.email.value;
         const name = form.name.value;
-        const quantity =form.available_quantity.value;
+        const quantity = form.available_quantity.value;
         const productName = form.product_name.value;
         const sub = form.sub.value;
         const price = form.price.value;
@@ -18,7 +19,7 @@ const Addtoys = () => {
         const photo = form.img.value;
         const description = form.description.value;
 
-        const newToy = {name, quantity , productName,sub, price ,rating,photo, description};
+        const newToy = {name, email, quantity , productName,sub, price ,rating,photo, description};
         console.log(newToy);
 
         

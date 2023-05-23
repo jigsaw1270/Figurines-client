@@ -1,6 +1,6 @@
 import { key } from 'localforage';
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Mytoys = () => {
@@ -39,7 +39,7 @@ const Mytoys = () => {
     <h2 className="card-title">{toy.name}</h2>
     <p>{toy.description}</p>
     <div className="card-actions">
-      <button className="bg-teal-400 btn">Update</button>
+      <Link to={`/update/${toy._id}`}><button className="bg-teal-400 btn">Update</button></Link>
       <button   onClick={ () => handleDelete(toy._id)} className="bg-teal-400 btn">Delete</button>
     </div>
   </div>

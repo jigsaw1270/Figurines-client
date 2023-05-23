@@ -57,7 +57,7 @@ const Login = () => {
           </label>
         </div>
         <div className="mt-6 form-control">
-          <button type='submit' className="btn btn-primary">Login</button>
+          <button type='submit' className="bg-teal-400 btn">Login</button>
           <p>
           Don't Have an Account? <span className='text-2xl'> <Link to="/register">Register</Link></span>
           </p>
